@@ -1,6 +1,6 @@
 package com.zubiri.elecciones;
 
-public abstract class  Lugar {
+public class  Lugar {
 	
 	private String calle;
 	private String ciudad;
