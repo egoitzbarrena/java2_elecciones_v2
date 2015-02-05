@@ -1,5 +1,9 @@
 package com.zubiri.elecciones;
 
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Scanner;
+
 
 final public class Partido {
 
@@ -61,6 +65,61 @@ public void setEmail(String  ema){
 
 	email=ema;
 
+}
+
+public static void imprimir_partido(){
+	
+	   String nombrefichero1 = "listapartidos.txt";
+	   String ruta1 ="/root/git/java2_elecciones_v2/eleccionesv2/elecciones";
+	   ArrayList<Partido> partidos = new ArrayList<Partido>();
+
+	   //Instanciamos el fichero donde estan los datos
+	   File archivo1 = new File(ruta1, nombrefichero1);
+	   Scanner s1 = null;
+	   try {
+	   	// Leemos el contenido del fichero
+	   	System.out.println("... Leemos el contenido del fichero ...");
+	   	s1 = new Scanner(archivo1);
+	   	// Obtengo los datos de los partidos de fútbol del fichero
+	   	while (s1.hasNextLine()){
+	   		String linea = s1.nextLine();	// Obtengo uuna linea del fichero
+	   		String [] cortarString = linea.split(" , ");		// Obtengo los datos del partido
+	   		Partido partidose = new Partido();	// Creo un objeto de la clase Partido
+
+	   		// Pongo los atributos al objeto "partido"
+	   		partidose.setNombre(cortarString[0]);
+	   		partidose.setDirecciones(cortarString[1]);
+	   		partidose.setCiudad(cortarString[2]);
+	   		partidose.setEmail(cortarString[3]);
+	   		partidose.setTelefono(Integer.parseInt(cortarString[4]));
+
+	   		// Añadimos el objeto "partido" al ArrayList
+	   		partidos.add(partidose);
+	   		
+	   		for(int d=0; d< partidos.size(); d++)
+	       	{
+	           	    System.out.println(" nombre: "+ partidos.get(d).getNombre() );
+	           		System.out.println(" Direccion: "+ partidos.get(d).getDirecciones());
+	           		System.out.println(" Ciudad: "+ partidos.get(d).getCiudad());
+	           		System.out.println(" Email: "+ partidos.get(d).getEmail());
+	           		System.out.println(" Telefono: "+ partidos.get(d).getTelefono());
+	       	}	
+
+	   partidos.clear();
+	   	}
+	   	
+
+	   	} 
+	   catch (Exception e) {
+	   		e.printStackTrace();
+	   	} finally{
+	   		try {
+	   			if (s1 != null)
+	   				s1.close();
+	   		} catch (Exception e2) {
+	   			e2.printStackTrace();
+	   		}
+	   	}
 }
 
 }

@@ -1,7 +1,6 @@
-import java.util.ArrayList;
 import java.util.Scanner;
+
 import com.zubiri.elecciones.*;
-import java.io.*;
 
 
 public class Opelecciones5 {
@@ -95,116 +94,20 @@ public class Opelecciones5 {
 	       case 'h':
 	    		System.out.print("\nHAS ELEGIDO Habitante ");
 	    		System.out.print("\n***********************************************************************************");
-
-	    		String nombrefichero = "censo.txt";
-	    		String ruta ="/home/zubiri/elecciones";
-	    		ArrayList<Habitante> habitantes = new ArrayList<Habitante>();
-
-	    		//Instanciamos el fichero donde estan los datos
-	    		File archivo = new File(ruta, nombrefichero);
-	    		Scanner s = null;
-	    		try {
-	    			// Leemos el contenido del fichero
-	    			System.out.println("... Leemos el contenido del fichero ...");
-	    			s = new Scanner(archivo);
-	    			// Obtengo los datos de los partidos de fútbol del fichero
-	    			while (s.hasNextLine()){
-	    				String linea = s.nextLine();	// Obtengo una linea del fichero (un partido de fútbol)
-	    				String [] cortarString = linea.split(" , ");		// Obtengo los datos del partido de futbol
-	    				Habitante habitantese = new Habitante();	// Creo un objeto de la clase "PartidoFutbol"
-
-	    				// Pongo los atributos al objeto "partido"
-
-	    				habitantese.setDni(cortarString[0]);
-	    				habitantese.setNombre(cortarString[1]);
-	    				habitantese.setApellido(cortarString[2]);
-	    				habitantese.setEdad(Integer.parseInt(cortarString[3]));
-
-	    				// Añadimos el objeto "partido" al ArrayList
-	    				habitantes.add(habitantese);
-	    				
-	    				for(int d=0; d< habitantes.size(); d++)
-	    		    	{
-	    					if (habitantes.get(d).getEdad()>=18){
-	    		        	    System.out.println(" Dni: "+ habitantes.get(d).getDni() );
-	    		        		System.out.println(" Nombre: "+ habitantes.get(d).getNombre());
-	    		        		System.out.println(" Apellido: "+ habitantes.get(d).getApellido());
-	    		        		System.out.println(" Edad: "+ habitantes.get(d).getEdad());
-	    					}
-	    		    	}	
-
-	    				habitantes.clear();
-	    				}
-
-	    			}
 	    			
-	    		catch (Exception e) {
-	    				e.printStackTrace();
-	    			} finally{
-	    				try {
-	    					if (s != null)
-	    						s.close();
-	    				} catch (Exception e2) {
-	    					e2.printStackTrace();
-	    				}
-	    			}
+	    		
+	    		
+	    		Habitante.imprimir_censo();
+	    		
 	          break;
 	       case 'P':
 	       case 'p':
 	    	   System.out.print("\nHAS ELEGIDO PARTIDO ");
 	    	   System.out.print("\n***************************************************");
 
-	    	   String nombrefichero1 = "listapartidos.txt";
-	    	   String ruta1 ="/home/zubiri/elecciones";
-	    	   ArrayList<Partido> partidos = new ArrayList<Partido>();
-
-	    	   //Instanciamos el fichero donde estan los datos
-	    	   File archivo1 = new File(ruta1, nombrefichero1);
-	    	   Scanner s1 = null;
-	    	   try {
-	    	   	// Leemos el contenido del fichero
-	    	   	System.out.println("... Leemos el contenido del fichero ...");
-	    	   	s1 = new Scanner(archivo1);
-	    	   	// Obtengo los datos de los partidos de fútbol del fichero
-	    	   	while (s1.hasNextLine()){
-	    	   		String linea = s1.nextLine();	// Obtengo una linea del fichero (un partido de fútbol)
-	    	   		String [] cortarString = linea.split(" , ");		// Obtengo los datos del partido de futbol
-	    	   		Partido partidose = new Partido();	// Creo un objeto de la clase "PartidoFutbol"
-
-	    	   		// Pongo los atributos al objeto "partido"
-	    	   		partidose.setNombre(cortarString[0]);
-	    	   		partidose.setDirecciones(cortarString[1]);
-	    	   		partidose.setCiudad(cortarString[2]);
-	    	   		partidose.setEmail(cortarString[3]);
-	    	   		partidose.setTelefono(Integer.parseInt(cortarString[4]));
-
-	    	   		// Añadimos el objeto "partido" al ArrayList
-	    	   		partidos.add(partidose);
-	    	   		
-	    	   		for(int d=0; d< partidos.size(); d++)
-	    	       	{
-	    	           	        System.out.println(" nombre: "+ partidos.get(d).getNombre() );
-	    	           		System.out.println(" Direccion: "+ partidos.get(d).getDirecciones());
-	    	           		System.out.println(" Ciudad: "+ partidos.get(d).getCiudad());
-	    	           		System.out.println(" Email: "+ partidos.get(d).getEmail());
-	    	           		System.out.println(" Telefono: "+ partidos.get(d).getTelefono());
-	    	       	}	
-
-	    	   partidos.clear();
-	    	   	}
-	    	   	
-
-	    	   	} 
-	    	   catch (Exception e) {
-	    	   		e.printStackTrace();
-	    	   	} finally{
-	    	   		try {
-	    	   			if (s1 != null)
-	    	   				s1.close();
-	    	   		} catch (Exception e2) {
-	    	   			e2.printStackTrace();
-	    	   		}
-	    	   	}
+	    	       	   
+	    	   Partido.imprimir_partido();
+	    	   
 	          break;
 	       default:
 	           System.out.println("no has elegido la letra correcta" );
