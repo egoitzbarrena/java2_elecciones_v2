@@ -2,12 +2,12 @@ package com.zubiri.elecciones;
 
 final public class Habitante {
 
-public String dni;
-public String nombre;
-public String apellido;
-public Integer edad;
-public Integer telefono;
-public String ciudad;
+private String dni;
+private String nombre;
+private String apellido;
+private Integer edad;
+private Integer telefono;
+private String ciudad;
 
 
 public Integer getTelefono(){

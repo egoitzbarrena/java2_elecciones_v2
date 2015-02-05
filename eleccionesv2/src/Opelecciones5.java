@@ -1,23 +1,9 @@
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
-import java.util.Scanner;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-
 import com.zubiri.elecciones.*;
-
-import java.util.*;
 import java.io.*;
 
-/*
-CLASSPATH=:/home/zubiri/Elecciones; export CLASSPATH
- *Programa para visualizar en pantalla el area y la circunferencia de un circulo 
- */
+
 public class Opelecciones5 {
 
 	private static Scanner sc;
@@ -62,9 +48,8 @@ public class Opelecciones5 {
 	    	   System.out.print("\nHAS ELEGIDO EspacioPublico ");
 	    	   System.out.print("\n***********************************************************************************");
 	    	   		String calle2,ciudad2,nombre;
-	    	   		Integer telefono2;
-
-	    	   		EspacioPublico espacio = new EspacioPublico();
+	    	   		
+			EspacioPublico espacio = new EspacioPublico();
 
 	    	   		System.out.print("\ningresa el nombre del Espacio Publico: ");
 	    	   		nombre = sc.next();
