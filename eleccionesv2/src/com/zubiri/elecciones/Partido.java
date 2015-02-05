@@ -69,20 +69,21 @@ public void setEmail(String  ema){
 
 public static void imprimir_partido(){
 	
-	   String nombrefichero1 = "listapartidos.txt";
-	   String ruta1 ="/root/git/java2_elecciones_v2/eleccionesv2/elecciones";
+	   String nombrefichero = "listapartidos.txt";
+	   String ruta ="/root/git/java2_elecciones_v2/eleccionesv2/elecciones";
 	   ArrayList<Partido> partidos = new ArrayList<Partido>();
+	   
 
 	   //Instanciamos el fichero donde estan los datos
-	   File archivo1 = new File(ruta1, nombrefichero1);
-	   Scanner s1 = null;
+	   File archivo = new File(ruta, nombrefichero);
+	   Scanner s = null;
 	   try {
 	   	// Leemos el contenido del fichero
 	   	System.out.println("... Leemos el contenido del fichero ...");
-	   	s1 = new Scanner(archivo1);
+	   	s = new Scanner(archivo);
 	   	// Obtengo los datos de los partidos de fútbol del fichero
-	   	while (s1.hasNextLine()){
-	   		String linea = s1.nextLine();	// Obtengo uuna linea del fichero
+	   	while (s.hasNextLine()){
+	   		String linea = s.nextLine();	// Obtengo uuna linea del fichero
 	   		String [] cortarString = linea.split(" , ");		// Obtengo los datos del partido
 	   		Partido partidose = new Partido();	// Creo un objeto de la clase Partido
 
@@ -114,8 +115,8 @@ public static void imprimir_partido(){
 	   		e.printStackTrace();
 	   	} finally{
 	   		try {
-	   			if (s1 != null)
-	   				s1.close();
+	   			if (s != null)
+	   				s.close();
 	   		} catch (Exception e2) {
 	   			e2.printStackTrace();
 	   		}
